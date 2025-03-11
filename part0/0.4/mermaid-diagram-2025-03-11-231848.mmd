@@ -1,0 +1,30 @@
+sequenceDiagram
+    participant browser
+    participant server
+
+    browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note
+    activate server
+    server-->>browser: 302 Redirect (/exampleapp/notes)
+    deactivate server
+
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/new_note
+    activate server
+    server-->>browser: HTML-code
+    deactivate server
+
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
+    activate server
+    server-->>browser: main.css
+    deactivate server
+
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.js
+    activate server
+    server-->>browser: main.js
+    deactivate server
+
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
+    activate server
+    server-->>browser: data.json [{content: "uche", date: "2025-03-11T16:00:27.847Z"}, {content: "1", date: "2025-03-11T16:01:08.469Z"},…]
+    deactivate server
+
+    Note right of browser: The browser executes the callback function that renders the notes
