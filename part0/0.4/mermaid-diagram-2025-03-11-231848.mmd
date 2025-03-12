@@ -11,24 +11,24 @@ sequenceDiagram
 
     browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/new_note
     activate server
-    server-->>browser: HTML-code
+    server-->>browser: 200 HTML-code
     deactivate server
 
     browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
     activate server
-    server-->>browser: main.css
+    server-->>browser: 200 main.css
     deactivate server
 
     browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.js
     activate server
-    server-->>browser: main.js
+    server-->>browser: 200 main.js
     deactivate server
 
     Note right of browser: The browser starts executing the JavaScript code that fetches the JSON from the server
 
     browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
     activate server
-    server-->>browser: data.json [{content: "uche", date: "2025-03-11T16:00:27.847Z"}, {content: "1", date: "2025-03-11T16:01:08.469Z"},…]
+    server-->>browser: 200 data.json [{content: "uche", date: "2025-03-11T16:00:27.847Z"}, {content: "1", date: "2025-03-11T16:01:08.469Z"},…]
     deactivate server
 
     Note right of browser: The browser executes the callback function that renders the notes
