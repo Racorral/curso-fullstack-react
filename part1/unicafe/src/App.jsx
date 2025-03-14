@@ -14,8 +14,6 @@ const Display = ({result, text}) => <p>{text}{result}</p>
 
 
 const App = () => {
-  const title = 'give feedback'
-
   // guarda los clics de cada botón en su propio estado
   const [good, setGood] = useState(0)
   const [neutral, setNeutral] = useState(0)
@@ -35,14 +33,18 @@ const App = () => {
 
   return (
     <div>
-      <Title title={title} />
+      <Title title='Give feedback' />
+
       <Button handleClick={handleGoodClick} text='Good' />
       <Button handleClick={handleNeutralClick} text='Neutral' />
       <Button handleClick={handleBadClick} text='Bad' />
-      <Title title={title} />
+
+      <Title title='Statics' />
+
       <Display result={good} text='Good: ' />
       <Display result={neutral} text='Neutral: ' />
       <Display result={bad} text='Bad: ' />
+      
     </div>
   )
 }
